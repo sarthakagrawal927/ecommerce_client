@@ -9,6 +9,9 @@ const App: Component = () => {
     <div class={styles.App}>
       <header class={styles.header}>
         <img src={logo} class={styles.logo} alt="logo" />
+        <h1 class="text-3xl font-bold">
+          Hello world!
+        </h1>
         <UserList />
       </header>
     </div>
