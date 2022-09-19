@@ -15,6 +15,7 @@ type OmmittableFields = {
     getExtension: any
     readBinaryExtension: any
     getJsPbMessageId: any
+    toString: any
 }
 
 export type User = OmitGet<main.UserProto>

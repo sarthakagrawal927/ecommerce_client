@@ -1,19 +1,20 @@
 import type { Component } from 'solid-js';
-
+import { Routes, Route } from '@solidjs/router';
 import logo from './logo.svg';
 import styles from './App.module.css';
 import { UserList } from './pages/userList';
 
+const Landing: Component = () => {
+  return <>Landing</>
+};
+
 const App: Component = () => {
   return (
-    <div class={styles.App}>
-      <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <h1 class="text-3xl font-bold">
-          Hello world!
-        </h1>
-        <UserList />
-      </header>
+    <div class='px-20 py-10'>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/users" element={<UserList />} />
+      </Routes>
     </div>
   );
 };
