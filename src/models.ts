@@ -11,6 +11,7 @@ export namespace main {
             name?: string;
             email?: string;
             age?: number;
+            active?: boolean;
         }) {
             super();
             pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [], this.#one_of_decls);
@@ -23,6 +24,9 @@ export namespace main {
                 }
                 if ("age" in data && data.age != undefined) {
                     this.age = data.age;
+                }
+                if ("active" in data && data.active != undefined) {
+                    this.active = data.active;
                 }
             }
         }
@@ -44,10 +48,17 @@ export namespace main {
         set age(value: number) {
             pb_1.Message.setField(this, 3, value);
         }
+        get active() {
+            return pb_1.Message.getFieldWithDefault(this, 4, false) as boolean;
+        }
+        set active(value: boolean) {
+            pb_1.Message.setField(this, 4, value);
+        }
         static fromObject(data: {
             name?: string;
             email?: string;
             age?: number;
+            active?: boolean;
         }): UserProto {
             const message = new UserProto({});
             if (data.name != null) {
@@ -59,6 +70,9 @@ export namespace main {
             if (data.age != null) {
                 message.age = data.age;
             }
+            if (data.active != null) {
+                message.active = data.active;
+            }
             return message;
         }
         toObject() {
@@ -66,6 +80,7 @@ export namespace main {
                 name?: string;
                 email?: string;
                 age?: number;
+                active?: boolean;
             } = {};
             if (this.name != null) {
                 data.name = this.name;
@@ -75,6 +90,9 @@ export namespace main {
             }
             if (this.age != null) {
                 data.age = this.age;
+            }
+            if (this.active != null) {
+                data.active = this.active;
             }
             return data;
         }
@@ -88,6 +106,8 @@ export namespace main {
                 writer.writeString(2, this.email);
             if (this.age != 0)
                 writer.writeInt32(3, this.age);
+            if (this.active != false)
+                writer.writeBool(4, this.active);
             if (!w)
                 return writer.getResultBuffer();
         }
@@ -105,6 +125,9 @@ export namespace main {
                         break;
                     case 3:
                         message.age = reader.readInt32();
+                        break;
+                    case 4:
+                        message.active = reader.readBool();
                         break;
                     default: reader.skipField();
                 }
