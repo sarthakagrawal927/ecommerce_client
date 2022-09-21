@@ -1,7 +1,5 @@
 import type { Component } from 'solid-js';
 import { Routes, Route } from '@solidjs/router';
-import logo from './logo.svg';
-import styles from './App.module.css';
 import { UserList } from './pages/userList';
 
 const Landing: Component = () => {
@@ -14,6 +12,7 @@ const App: Component = () => {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/users" element={<UserList />} />
+        <Route path='*' element={<div>404</div>} />
       </Routes>
     </div>
   );
